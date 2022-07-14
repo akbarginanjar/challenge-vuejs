@@ -11,10 +11,10 @@
             {{ new Date().getFullYear() }}, made with
             <i class="fa fa-heart"></i> by
             <a
-              href="https://www.creative-tim.com"
+              href="https://instagram.com/akbarginanjar_/"
               class="font-weight-bold"
               target="_blank"
-              >Creative Tim</a
+              >Akbar Ginanjar</a
             >
             for a better web.
           </div>

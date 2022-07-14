@@ -9,6 +9,8 @@ import SignIn from "@/views/SignIn.vue";
 import SignUp from "@/views/SignUp.vue";
 import Login from "@/views/Login.vue";
 import Index from "@/views/Index.vue";
+import Materi from "@/views/Materi.vue";
+import Download from "@/views/Download.vue";
 
 const routes = [
   {
@@ -25,6 +27,16 @@ const routes = [
     path: "/home",
     name: "Index",
     component: Index,
+  },
+  {
+    path: "/materi",
+    name: "Materi",
+    component: Materi,
+  },
+  {
+    path: "/materi/:id",
+    name: "Lihat Materi",
+    component: Download,
   },
   {
     path: "/dashboard",

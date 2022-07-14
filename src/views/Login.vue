@@ -99,6 +99,23 @@ import axios from 'axios'
     ...mapMutations(["toggleEveryDisplay", "toggleHideConfig"]),
 
     handleSubmit() {
+    // axios.post('https://api.belajar.link/auth/user-password', {
+    //             // data
+    //                 email: this.email,
+		// 			password: this.password
+    //             }, {
+    //             headers: {
+    //                 'secret': 'ADeuCasb4fDkdakK5IJas3CQ5h0TfrWGbiyHbYHBBIblitnj545GHdnrcdgNS6Q',
+    //                 'Content-Type': 'application/json'
+    //             }
+    //             })
+    //   .then((response) => {
+    //     localStorage.setItem('jwtToken', response.data.tokens);
+    //     window.location = '/home';
+    //   })
+    //   .catch((err) => console.log(err.response));
+
+
       if (this.email.trim() && this.password.trim()) {
         let formData = new FormData();
         formData.append("email", this.email.trim());
@@ -116,16 +133,9 @@ import axios from 'axios'
 
         axios(options)
           .then(response => {
-            const token = response.data.token;
+            localStorage.setItem('token', response.data.tokens)
 
-            if (token) {
-              this.$router.push({
-                name: "Index",
-                params: {
-                  token: token
-                }
-              });
-            }
+            this.$router.push('/home')
           })
           .catch(e => {
             alert(e + "\n" + "Username / password yang dimasukkan salah.");

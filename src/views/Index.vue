@@ -13,6 +13,7 @@
 </div>
 </template>
 <script>
+// import axios from 'axios';
 export default {
   name: "Index",
   data() {
@@ -23,10 +24,35 @@ export default {
   },
   created() {
     this.currentRouteName = this.$route.name;
-    const token = this.$route.params.token;
+    const token = localStorage.getItem('token');
     if (token) {
       this.token = token;
-      alert("Anda mengakses halaman Backend dengan token : " + "\n\n" + token);
+    } else {
+      this.$router.push({
+        name: 'Login'
+      })
+    }
+  },
+  methods: {
+    logout() {
+      localStorage.clear();
+      this.$router.push('/login')
+      //  const options = {
+      //     url: "https://api.belajar.link/auth/logout",
+      //     method: "post",
+      //     headers: {
+      //       "secret": "ADeuCasb4fDkdakK5IJas3CQ5h0TfrWGbiyHbYHBBIblitnj545GHdnrcdgNS6Q",
+      //       "Content-Type": "multipart/form-data"
+      //     },
+      //   };
+
+      //   axios(options)
+      //   .then((response) => {
+      //     localStorage.clear();
+
+      //   })
+      //   .catch((err) => {
+      //   })
     }
   }
 };
